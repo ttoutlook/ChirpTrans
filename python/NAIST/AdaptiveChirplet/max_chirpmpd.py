@@ -115,7 +115,27 @@ class max_chirpmpd:
 
         # if np.max(aR) == 0:
         # fft compute the last axis # using fft to compute the correlation between signal and gaussian chirplet atom
-        return Rf0_g
+    def forloop2(self):
+        nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
+        Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        maxabs = 0
+        for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
+            self.seq2idx(seq)  # get index of scale and rotation from the sequence
+            self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
+            # gkms[seq - 1, :] = self.g_km
+            for q in range(self.N):
+                Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
+            del self.g_km
+            # Rf0_gkmq = self.x[np.newaxis,:]*np.conj(Rf0_gkmq)
+            Rf0_g = np.fft.fft(Rf0_gkmq, axis=1)
+            aR = np.abs(Rf0_g)
+            max_ = np.max(aR)
+            if max_ > maxabs:
+                maxabs = max_
+                id1, id2 = np.where(aR == max_)
+                Rf0gbetal = Rf0_g[id1[0]][id2[0]]
+                seq_ = seq
+        return Rf0gbetal, seq_, id1[0], id2[0]
 
     def gkmn(self):
         """
