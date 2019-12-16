@@ -63,7 +63,7 @@ class max_chirpmpd:
 
         # loop2:
         self.r = np.arange(0, self.D - self.i0)  # total # of levels
-        Rf0gbetal, seq, id1, id2 = self.forloop1()
+        Rf0gbetal, seq, id1, id2 = self.forloop2()
         self.seq2idx(seq + 1)
         beta1 = [self.k, self.m, id1, id2]
         del self.k, self.m, self.r
@@ -127,11 +127,11 @@ class max_chirpmpd:
             # gkms[seq - 1, :] = self.g_km
             # for q in range(self.N):
             #     # Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
-            q = np.argmax(funs().ccorr(self.x, self.g_km))
+            q = np.argmax(np.real(funs().periodic_corr(self.x, self.g_km)))
             if q != 0:
                 q = self.N - q
-            del self.g_km
             Rf0_gkmq = self.x * np.conj(np.roll(self.g_km, q))
+            del self.g_km
             # Rf0_gkmq = self.x[np.newaxis,:]*np.conj(Rf0_gkmq)
             Rf0_g = np.fft.fft(Rf0_gkmq)
             aR = np.abs(Rf0_g)
@@ -141,8 +141,9 @@ class max_chirpmpd:
                 maxabs = max_
                 id = np.where(aR == max_)
                 Rf0gbetal = Rf0_g[id[0]]
+                q_ = q
                 seq_ = seq
-        return Rf0gbetal, seq_, q, id[0]
+        return Rf0gbetal, seq_, q_, id[0]
 
     def gkmn(self):
         """

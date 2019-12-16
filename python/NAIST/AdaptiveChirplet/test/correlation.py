@@ -15,7 +15,7 @@ corr = signal.correlate(sig_noise, np.ones(128), mode='same') / 128
 corr1 = signal.correlate([1 + 1j, 2 + 2j, 3 + 3j], [0 - 1j, 1 - 1j, 0.5 + 1j], mode='same')
 t1 = np.asarray([1 + 1j, 2 + 2j, 3 + 3j])
 t2 = np.asarray([0 - 1j, 1 - 1j, 0.5 + 1j])
-corr2 = funs().ccorr([1 + 1j, 2 + 2j, 3 + 3j], [0 - 1j, 1 - 1j, 0.5 + 1j])
+corr2 = funs().periodic_corr([1 + 1j, 2 + 2j, 3 + 3j], [0 - 1j, 1 - 1j, 0.5 + 1j])
 t3 = np.sum(t1 * np.roll(t2, 0))
 print(corr2)
 print(t3)
