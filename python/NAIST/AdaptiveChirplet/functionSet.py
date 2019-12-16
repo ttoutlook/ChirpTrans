@@ -19,10 +19,13 @@ class functionSet:
         self.x = x  # the original signal
         self.N = np.size(x)
         if self.N > 1:
+            if np.iscomplex(self.x).all:
+                self.xhil = self.x
             # self.norm = np.linalg.norm(self.x)
             # self.xnorm = x / self.norm
-            self.xhil = hilbert(self.x)
-            self.fs = fs
+            else:
+                self.xhil = hilbert(self.x)
+        self.fs = fs
 
     def wgn(self, snr):
         if snr == np.inf:
@@ -282,3 +285,10 @@ class functionSet:
         else:
             g = A * np.exp(-((t - p) / w) ** 2) * (np.cos(2 * pi * f * t + phi))
         return g
+
+    def plot(self):
+        plt.figure(figsize=(5, 3))
+        tlabel = np.arange(0, self.N)/self.fs
+        plt.plot(self.x)
+        plt.show()
+        plt.tight_layout()

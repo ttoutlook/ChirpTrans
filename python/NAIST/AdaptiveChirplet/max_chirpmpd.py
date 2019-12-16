@@ -10,9 +10,7 @@ import copy
 from scipy.signal import hilbert
 from numpy import pi
 import time
-import torch
-from scipy.fftpack import fft
-
+from functionSet import functionSet as funs
 
 class max_chirpmpd:
     def __init__(self, x, D, i0, radix):
@@ -98,6 +96,7 @@ class max_chirpmpd:
         for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
             self.seq2idx(seq)  # get index of scale and rotation from the sequence
             self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
+            funs(self.g_km, fs=1).plot()
             # gkms[seq - 1, :] = self.g_km
             for q in range(self.N):
                 Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
@@ -113,30 +112,14 @@ class max_chirpmpd:
                 seq_ = seq
         return Rf0gbetal, seq_, id1[0], id2[0]
 
-        def forloop2(self):
-            nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
-            Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
-            maxabs = 0
-            for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
-                self.seq2idx(seq)  # get index of scale and rotation from the sequence
-                self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
-                # gkms[seq - 1, :] = self.g_km
-                for q in range(self.N):
-                    Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
-                del self.g_km
-                # Rf0_gkmq = self.x[np.newaxis,:]*np.conj(Rf0_gkmq)
-                Rf0_g = np.fft.fft(Rf0_gkmq, axis=1)
-                aR = np.abs(Rf0_g)
-                max_ = np.max(aR)
-                if max_ > maxabs:
-                    maxabs = max_
-                    id1, id2 = np.where(aR == max_)
-                    Rf0gbetal = Rf0_g[id1[0]][id2[0]]
-                    seq_ = seq
-            return Rf0gbetal, seq_, id1[0], id2[0]
-
-        # if np.max(aR) == 0:
-        # fft compute the last axis # using fft to compute the correlation between signal and gaussian chirplet atom
+    def forloop2(self):
+        nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
+        Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        maxabs = 0
+        for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
+            self.seq2idx(seq)  # get index of scale and rotation from the sequence
+            self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
+            funs.plot(self.gkm)
 
     def gkmn(self):
         """
@@ -220,7 +203,7 @@ class max_chirpmpd:
 
 
 if __name__ == '__main__':
-    sig = np.sin(np.arange(0, 1000))
+    sig = np.sin(np.arange(0, 10000))
     x = hilbert(sig)
     D = 5
     i0 = 1
