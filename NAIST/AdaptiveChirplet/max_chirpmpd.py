@@ -64,6 +64,7 @@ class max_chirpmpd:
         # loop2:
         self.r = np.arange(0, self.D - self.i0)  # total # of levels
         Rf0gbetal, seq, id1, id2 = self.forloop2()
+        self.seq_test = seq
         self.seq2idx(seq + 1)
         beta1 = [self.k, self.m, id1, id2]
         del self.k, self.m, self.r
@@ -96,6 +97,7 @@ class max_chirpmpd:
         nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
         Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
         maxabs = 0
+
         for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
             self.seq2idx(seq)  # get index of scale and rotation from the sequence
             self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
@@ -121,13 +123,16 @@ class max_chirpmpd:
         nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
         # Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
         maxabs = 0
+        # xfft = np.fft.fft(self.x)
+        q_ = []
         for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
             self.seq2idx(seq)  # get index of scale and rotation from the sequence
             self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
+            # gkmnfft = np.fft.fft(self.g_km)
             # gkms[seq - 1, :] = self.g_km
             # for q in range(self.N):
             #     # Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
-            q = np.argmax(np.real(funs().periodic_corr(self.x, self.g_km)))
+            q = np.argmax(np.abs(funs().ccorr(self.x, self.g_km.conj())))
             if q != 0:
                 q = self.N - q
             Rf0_gkmq = self.x * np.conj(np.roll(self.g_km, q))
@@ -139,11 +144,64 @@ class max_chirpmpd:
             # id2 = np.argmax(aR)
             if max_ > maxabs:
                 maxabs = max_
-                id = np.where(aR == max_)
-                Rf0gbetal = Rf0_g[id[0]]
-                q_ = q
+                # id = np.where(aR == max_)
+                # Rf0gbetal = Rf0_g[id[0]]
+                q_.append(q)
                 seq_ = seq
-        return Rf0gbetal, seq_, q_, id[0]
+        # after get the seq and frequency-shift, refine the time-shift
+        self.seq2idx(seq_)
+        self.gkmn()
+        Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        for q in range(self.N):
+            Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
+        del self.g_km
+        Rf0_g = np.fft.fft(Rf0_gkmq, axis=1)
+        aR = np.abs(Rf0_g)
+        id0,id1 = np.where(aR==np.max(aR))
+        Rf0gbetal = Rf0_g[id0[0]][id1[0]]
+        return Rf0gbetal, seq_, id0[0], id1[0]
+
+    def forloop3(self):
+        nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
+        # Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        maxabs = 0
+        xfft = np.fft.fft(self.x)
+        q_ = []
+        for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
+            self.seq2idx(seq)  # get index of scale and rotation from the sequence
+            self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
+            gkmnfft = np.fft.fft(self.g_km).conj()
+            # gkms[seq - 1, :] = self.g_km
+            # for q in range(self.N):
+            #     # Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
+            q = np.argmax(np.abs(funs().ccorr(xfft, gkmnfft)))
+            if q != 0:
+                q = self.N - q
+            Rf0_gkmq = self.x * np.conj(np.roll(self.g_km, q))
+            del self.g_km
+            # Rf0_gkmq = self.x[np.newaxis,:]*np.conj(Rf0_gkmq)
+            Rf0_g = np.fft.fft(Rf0_gkmq)
+            aR = np.abs(Rf0_g)
+            max_ = np.max(aR)
+            # id2 = np.argmax(aR)
+            if max_ > maxabs:
+                maxabs = max_
+                # id = np.where(aR == max_)
+                # Rf0gbetal = Rf0_g[id[0]]
+                q_.append(q)
+                seq_ = seq
+        # after get the seq and frequency-shift, refine the time-shift
+        self.seq2idx(seq_)
+        self.gkmn()
+        Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        for q in range(self.N):
+            Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
+        del self.g_km
+        Rf0_g = np.fft.fft(Rf0_gkmq, axis=1)
+        aR = np.abs(Rf0_g)
+        id0,id1 = np.where(aR==np.max(aR))
+        Rf0gbetal = Rf0_g[id0[0]][id1[0]]
+        return Rf0gbetal, seq_, id0[0], id1[0]
 
     def gkmn(self):
         """
@@ -235,3 +293,5 @@ if __name__ == '__main__':
     time1 = time.time()
     clss = max_chirpmpd(x, D, i0, radix)
     print(time.time() - time1)
+    print(clss.code)
+    print(clss.seq_test)
