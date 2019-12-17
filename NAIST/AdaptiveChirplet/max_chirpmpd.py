@@ -10,7 +10,10 @@ import copy
 from scipy.signal import hilbert
 from numpy import pi
 import time
+import torch
+from scipy.fftpack import fft
 from functionSet import functionSet as funs
+
 
 class max_chirpmpd:
     def __init__(self, x, D, i0, radix):
@@ -60,7 +63,7 @@ class max_chirpmpd:
 
         # loop2:
         self.r = np.arange(0, self.D - self.i0)  # total # of levels
-        Rf0gbetal, seq, id1, id2 = self.forloop1()
+        Rf0gbetal, seq, id1, id2 = self.forloop2()
         self.seq2idx(seq + 1)
         beta1 = [self.k, self.m, id1, id2]
         del self.k, self.m, self.r
@@ -96,7 +99,6 @@ class max_chirpmpd:
         for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
             self.seq2idx(seq)  # get index of scale and rotation from the sequence
             self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
-            funs(self.g_km, fs=1).plot()
             # gkms[seq - 1, :] = self.g_km
             for q in range(self.N):
                 Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
@@ -112,14 +114,36 @@ class max_chirpmpd:
                 seq_ = seq
         return Rf0gbetal, seq_, id1[0], id2[0]
 
+        # if np.max(aR) == 0:
+        # fft compute the last axis # using fft to compute the correlation between signal and gaussian chirplet atom
+
     def forloop2(self):
         nidx = self.i0 + sum(4 * self.radix ** (2 * self.r) - 1)  # total number of atoms, from the level
-        Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
+        # Rf0_gkmq = np.zeros([self.N, self.N], dtype=np.complex64)
         maxabs = 0
         for seq in range(1, nidx + 1):  # for each chirplet in the dictionary
             self.seq2idx(seq)  # get index of scale and rotation from the sequence
             self.gkmn()  # gkmn: gaussian chirplet atom at scale k and rotation m
-            funs.plot(self.gkm)
+            # gkms[seq - 1, :] = self.g_km
+            # for q in range(self.N):
+            #     # Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
+            q = np.argmax(np.real(funs().periodic_corr(self.x, self.g_km)))
+            if q != 0:
+                q = self.N - q
+            Rf0_gkmq = self.x * np.conj(np.roll(self.g_km, q))
+            del self.g_km
+            # Rf0_gkmq = self.x[np.newaxis,:]*np.conj(Rf0_gkmq)
+            Rf0_g = np.fft.fft(Rf0_gkmq)
+            aR = np.abs(Rf0_g)
+            max_ = np.max(aR)
+            # id2 = np.argmax(aR)
+            if max_ > maxabs:
+                maxabs = max_
+                id = np.where(aR == max_)
+                Rf0gbetal = Rf0_g[id[0]]
+                q_ = q
+                seq_ = seq
+        return Rf0gbetal, seq_, q_, id[0]
 
     def gkmn(self):
         """
@@ -203,7 +227,7 @@ class max_chirpmpd:
 
 
 if __name__ == '__main__':
-    sig = np.sin(np.arange(0, 10000))
+    sig = np.sin(np.arange(0, 1000))
     x = hilbert(sig)
     D = 5
     i0 = 1
@@ -211,4 +235,3 @@ if __name__ == '__main__':
     time1 = time.time()
     clss = max_chirpmpd(x, D, i0, radix)
     print(time.time() - time1)
-

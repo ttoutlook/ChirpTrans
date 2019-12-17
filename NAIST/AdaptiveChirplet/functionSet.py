@@ -19,13 +19,10 @@ class functionSet:
         self.x = x  # the original signal
         self.N = np.size(x)
         if self.N > 1:
-            if np.iscomplex(self.x).all:
-                self.xhil = self.x
             # self.norm = np.linalg.norm(self.x)
             # self.xnorm = x / self.norm
-            else:
-                self.xhil = hilbert(self.x)
-        self.fs = fs
+            self.xhil = hilbert(self.x)
+            self.fs = fs
 
     def wgn(self, snr):
         if snr == np.inf:
@@ -286,9 +283,26 @@ class functionSet:
             g = A * np.exp(-((t - p) / w) ** 2) * (np.cos(2 * pi * f * t + phi))
         return g
 
-    def plot(self):
-        plt.figure(figsize=(5, 3))
-        tlabel = np.arange(0, self.N)/self.fs
-        plt.plot(self.x)
-        plt.show()
-        plt.tight_layout()
+    def periodic_corr(self, x, y):
+        """Periodic correlation, implemented using the FFT.
+
+        x and y must be real sequences with the same length.
+        """
+        corr = np.fft.ifft(np.fft.fft(x) * np.fft.fft(y).conj())
+        if np.sum(corr.imag) == 0:
+            return corr.real
+        else:
+            return corr
+
+    def ccorr(self, a, b):
+        '''
+        Computes the circular correlation (inverse convolution) of the real-valued
+        vector a with b.
+        '''
+        return self.cconv(np.roll(a[::-1], 1), b)
+        # return self.cconv(a,b[::-1])
+    def cconv(self, a, b):
+        '''
+        Computes the circular convolution of the (real-valued) vectors a and b.
+        '''
+        return np.fft.ifft(np.fft.fft(a) * np.fft.fft(b))

@@ -134,11 +134,11 @@ if __name__ == '__main__':
     s_f = A_f * np.sin(2 * pi * fc_f * t2 / fs)
     sig = s_e + np.random.randn(s_e.size) * 0.1
 
-    # fs = 100
-    # t = np.arange(1, 1001)
-    # sig = np.sin(t) * np.hanning(t.size)
+    fs = 100
+    t = np.arange(1, 1001)
+    sig = np.sin(t) * np.hanning(t.size)
     # sig = np.sin(t)
-    sigclass = mp_adapt_chirplets(sig, 2, methodid=1)
+    sigclass = mp_adapt_chirplets(sig, 5, methodid=1)
     plt.figure()
     plt.subplot(411)
     plt.plot(sigclass.x.real)
