@@ -52,7 +52,7 @@ plt.ylabel('Amplitude\mV')
 plt.xlim([0, 2])
 plt.tight_layout()
 
-ewt, mfb, boundaries = ewtpy.EWT1D(wave, N=11)
+ewt, mfb, boundaries = ewtpy.EWT1D(hilbert(wave), N=4)
 plt.subplot(2, 1, 2)
 num = np.size(ewt, 1)
 fig, axes = plt.subplots(num, 2)
@@ -64,7 +64,7 @@ for i in range(num):
     ind, _ = find_peaks(ffthalf, height=max(ffthalf) * 0.99)
     print("Components Frequency", fslab[ind])
     axes[i, 1].plot(fslab, ffthalf)
-    # axes[i, 1].set_xlim([0, 2])
+    axes[i, 1].set_xlim([0, 2])
 
     # df1 = pd.DataFrame()
     # df2 = pd.DataFrame()
@@ -96,6 +96,6 @@ plt.tight_layout()
 # df['A_Freq_Amplitude/mV'] = ffthalf
 # df.to_csv('A_components.csv')
 import tftb.processing as tf
-from functionSet import functionSet as funs
-funs(wave,fs =fs).STFT_plot(plot=True)
+# from functionSet import functionSet as funs
+# funs(wave,fs =fs).STFT_plot(plot=True)
 # wigner.run()
