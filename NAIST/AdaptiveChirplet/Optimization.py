@@ -63,6 +63,7 @@ class FindBestChirpRate:
         bound = Bounds(self.dboundary, self.hboundary)
         res = minimize(self.fun,
                        init_point,
+                       bounds=bound,
                        method=method,
                        jac=self.fprime,
                        hess='2-point',
