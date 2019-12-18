@@ -100,7 +100,7 @@ class functionSet:
         Q = np.size(P, axis=0)  # the number of chirplets
         tfr = []
         for i in range(Q):
-            chirplet_k = MakeChirplets(self.N, P[i, :]).sig.real
+            chirplet_k = MakeChirplet(self.N, P[i, :]).sig.real
             wg = tf.WignerVilleDistribution(chirplet_k)
             tfr, t, f = wg.run()
             # tfr = np.sqrt(np.real(tfr*tfr.conj()))
@@ -301,8 +301,15 @@ class functionSet:
         '''
         return self.cconv(np.roll(a[::-1], 1), b)
         # return self.cconv(a,b[::-1])
+
     def cconv(self, a, b):
         '''
         Computes the circular convolution of the (real-valued) vectors a and b.
         '''
         return np.fft.ifft(np.fft.fft(a) * np.fft.fft(b))
+
+    def plot(self, x):
+        plt.figure(figsize=(5, 3))
+        tlab = np.arange(0, x.size) / self.fs
+        plt.plot(tlab, x.real)
+        plt.show()
