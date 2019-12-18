@@ -55,9 +55,6 @@ class MaxCorrelation():
             # calculate the circular correlation between gaussian atom and signal
             tc = np.argmax(np.abs(self.ccorr(self.x, self.atom.conj())))
             # time center
-            # plt.figure()
-            # plt.plot(self.atom.real)
-            # plt.show()
             if tc != 0:
                 tc = self.N - tc
             RE_projection = self.x * np.conj(np.roll(self.atom, tc))
