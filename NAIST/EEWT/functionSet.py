@@ -7,7 +7,7 @@
 
 import numpy as np
 import tftb.processing as tf
-from make_chirplets import MakeChirplets
+from MakeChirplet import MakeChirplet
 from scipy.signal import hilbert
 import matplotlib.pyplot as plt
 from numpy import pi
