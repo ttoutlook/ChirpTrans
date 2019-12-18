@@ -13,6 +13,7 @@ import time
 import torch
 from scipy.fftpack import fft
 from functionSet import functionSet as funs
+import matplotlib.pyplot as plt
 
 
 class max_chirpmpd:
@@ -133,6 +134,11 @@ class max_chirpmpd:
             # for q in range(self.N):
             #     # Rf0_gkmq[q, :] = self.x * np.conj(np.roll(self.g_km, q))
             q = np.argmax(np.abs(funs().ccorr(self.x, self.g_km.conj())))
+            # plt.figure()
+            # plt.plot(self.g_km.real)
+            # plt.show()
+            # funs().plot(self.g_km.real)
+            atom = self.g_km.real
             if q != 0:
                 q = self.N - q
             Rf0_gkmq = self.x * np.conj(np.roll(self.g_km, q))

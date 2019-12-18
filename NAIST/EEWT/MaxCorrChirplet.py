@@ -9,6 +9,7 @@ import numpy as np
 from scipy.signal import hilbert
 from numpy import pi
 from functionSet import functionSet as funs
+import matplotlib.pyplot as plt
 
 
 class MaxCorrelation():
@@ -35,7 +36,6 @@ class MaxCorrelation():
         self.corratio.append(cc)
         self.curpoint += 1
 
-
     def mp_chirplet_bultan(self):
         """
         mp_chirplet_bultan: implements matching-persuit with bultan chirplet atoms
@@ -55,7 +55,9 @@ class MaxCorrelation():
             # calculate the circular correlation between gaussian atom and signal
             tc = np.argmax(np.abs(self.ccorr(self.x, self.atom.conj())))
             # time center
-            funs.plot
+            # plt.figure()
+            # plt.plot(self.atom.real)
+            # plt.show()
             if tc != 0:
                 tc = self.N - tc
             RE_projection = self.x * np.conj(np.roll(self.atom, tc))
@@ -94,22 +96,24 @@ class MaxCorrelation():
         """
         gaussian atom
         """
-        d = 5  # this controls the discrete accuracy of the gaussian window
+        d = 5  # this control the accuracy of the gaussian window
+        cg = np.zeros(self.N, dtype=np.complex64)
         r = np.arange(-d, d + 1) * self.N
+
         n = np.ones([self.N, r.size]).transpose() * np.arange(0, self.N)
         r = np.ones([self.N, r.size]) * r
         nr = n + r.transpose()
-        atom = np.sum(np.exp(-pi / self.N * (1 / self.sigma ** 2 - 1j * self.xi) * nr ** 2), axis=0)
-        # normalize
-        atom = atom / np.linalg.norm(atom).real
-        self.atom = atom.flatten()
+        cg = np.sum(np.exp(-pi / self.N * (1 / self.sigma ** 2 - 1j * self.xi) * nr ** 2), axis=0)
+        # normalization
+        g_km = cg / np.linalg.norm(cg).real
+        self.atom = g_km.flatten()
 
     def getxi(self):
         """
         xi: get the chirp rate
         """
         s = self.radix ** self.level
-        self.xi = (np.sqrt(s ** 4 - 1) * np.cos(self.alpha) * np.sin(self.alpha)) / (
+        self.xi = ((s ** 4 - 1) * np.cos(self.alpha) * np.sin(self.alpha)) / (
                 np.sin(self.alpha) ** 2 + s ** 4 * np.cos(self.alpha) ** 2)
 
     def getsigma(self):
@@ -153,7 +157,6 @@ class MaxCorrelation():
             rot = seq - temp1 - 2 * self.radix ** (2 * (level - self.i0))  # get rotating level number
         self.level = level
         self.rot = rot
-
 
     def ccorr(self, a, b):
         '''

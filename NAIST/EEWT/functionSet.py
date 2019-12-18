@@ -310,6 +310,6 @@ class functionSet:
 
     def plot(self, x):
         plt.figure(figsize=(5, 3))
-        tlab = np.arange(0, x.size) / self.fs
-        plt.plot(tlab, x.real)
+        tlab = np.arange(0, len(x)) / self.fs
+        plt.plot(tlab, x)
         plt.show()
