@@ -11,10 +11,12 @@ from Optimization import FindBestChirpRate
 import matplotlib.pyplot as plt
 from scipy.signal import stft, spectrogram
 from max_chirpmpd import max_chirpmpd
+from scipy import signal
+
 
 
 class mp_chirplet:
-    def __init__(self, x, M=64, D=5, i0=1, radix=2, methodid = 1):
+    def __init__(self, x, M=64, D=5, i0=1, radix=2, methodid=1):
         """
         # MP_CHIRPLET Estimate a chirplet that best fits the signal using Matching Pursuit algorithm
         inputs:
@@ -33,7 +35,6 @@ class mp_chirplet:
         self.radix = radix
         self.N = len(self.x)
         self.initial()
-
 
     def initial(self):
         # estimate the chirplet using MP
@@ -56,7 +57,7 @@ class mp_chirplet:
         """
 
         # a longer window is useful here
-        Z = 4
+        Z =4
         t, f, c, d = self.P_ori[1:]
         rt = int(round(t))
         if rt - Z * self.M < 1 and rt + Z * self.M > self.N:
@@ -70,7 +71,12 @@ class mp_chirplet:
         else:
             xx = self.x[rt - Z * self.M - 1:rt + Z * self.M]
 
-        xx = xx.flatten()
+        windid = ['boxcar', 'triang', 'blackman', 'hamming', 'hann', 'bartlett', 'flattop', 'parzen', 'bohman',
+                  'blackmanharris', 'nuttall', 'barthann']
+        # xx = xx.flatten() * signal.hilbert(signal.get_window(windid[0], xx.size))
+        # xx = xx.flatten()
+        xx = xx.flatten() * signal.get_window(windid[0], xx.size)
+        xx = xx / max(xx)
         x0 = [Z * self.M + 1 + (t - rt), f, c, d]
         vlb = [1, 0, -np.inf, 0.25]
         vub = [2 * Z * self.M + 1, 2 * pi, np.inf, self.N / 2]

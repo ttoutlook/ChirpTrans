@@ -19,6 +19,8 @@ from scipy.signal import hilbert
 from mle_adpat_chirplets import mle_adapt_chirplets
 from mp_adapt_chirplets import mp_adapt_chirplets
 
+np.random.seed(0)
+
 # create and display the simulated signal
 N = 500  # signal length
 

@@ -19,6 +19,8 @@ from mle_adpat_chirplets import mle_adapt_chirplets
 from mp_adapt_chirplets import mp_adapt_chirplets
 from scipy import signal
 
+np.random.seed(0)
+
 # construct and display the signals
 # first signal length and sampling frequency
 T = 512  # signal duration

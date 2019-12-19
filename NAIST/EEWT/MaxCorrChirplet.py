@@ -40,13 +40,13 @@ class MaxCorrelation():
         """
         mp_chirplet_bultan: implements matching-persuit with bultan chirplet atoms
         """
-        self.levels = np.arange(0, self.depth - self.i0)  # the chirplet levels
         RE, atomid, td, fd = self.forloop()
-        beta = [self.level, self.rot, td, fd]
+        beta = [self.alpha, self.sigma, td, fd]
         return RE, beta
 
     def forloop(self):
-        nidx = self.i0 + sum(4 * self.radix ** (2 * self.levels) - 1)  # total number of atoms, from the level
+        levels = np.arange(0, self.depth - self.i0)  # the chirplet levels
+        nidx = self.i0 + sum(4 * self.radix ** (2 * levels) - 1)  # total number of atoms, from the level
         maxabs = 0
         for seq in range(1, nidx + 1):  # seq:  the chirplet id in chirplet set
             self.seq2ind(seq)  # get the corresponding scale and rotation from the sequence
@@ -87,14 +87,13 @@ class MaxCorrelation():
         self.getsigma()  # get the sigma -- the time domain angular scale
         self.getxi()  # get the xi -- chirp rate
         self.getgaussian()  # get the gaussian atom
-        del self.alpha, self.sigma, self.xi
+        # del self.sigma, self.xi
 
     def getgaussian(self):
         """
         gaussian atom
         """
         d = 5  # this control the accuracy of the gaussian window
-        cg = np.zeros(self.N, dtype=np.complex64)
         r = np.arange(-d, d + 1) * self.N
 
         n = np.ones([self.N, r.size]).transpose() * np.arange(0, self.N)
@@ -109,22 +108,21 @@ class MaxCorrelation():
         """
         xi: get the chirp rate
         """
-        s = self.radix ** self.level
-        self.xi = ((s ** 4 - 1) * np.cos(self.alpha) * np.sin(self.alpha)) / (
-                np.sin(self.alpha) ** 2 + s ** 4 * np.cos(self.alpha) ** 2)
+        self.xi = ((self.s ** 4 - 1) * np.cos(self.alpha) * np.sin(self.alpha)) / (
+                np.sin(self.alpha) ** 2 + self.s ** 4 * np.cos(self.alpha) ** 2)
 
     def getsigma(self):
         """
         sigma: the time domain angular scale
         sigma = sigkm(a^k,angm)
         """
-        s = self.radix ** self.level
-        self.sigma = np.sqrt(np.sin(self.alpha) ** 2 + s ** 4 * np.cos(self.alpha) ** 2) / s
+        self.sigma = np.sqrt(np.sin(self.alpha) ** 2 + self.s ** 4 * np.cos(self.alpha) ** 2) / self.s
 
     def getalpha(self):
         """
         get discrete rotating angle
         """
+        self.s = self.radix ** self.level
         self.alpha = np.arctan(self.rot / self.radix ** (2 * (self.level - self.i0)))
 
     def seq2ind(self, seq):
