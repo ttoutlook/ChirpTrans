@@ -9,6 +9,7 @@ from make_chirplets import MakeChirplets
 from numpy import pi
 from Optimization import FindBestChirpRate
 import matplotlib.pyplot as plt
+from Optimize import FindBestChirpletRate
 from scipy.signal import stft, spectrogram
 from max_chirpmpd import max_chirpmpd
 from scipy import signal
@@ -76,7 +77,7 @@ class mp_chirplet:
         # xx = xx.flatten() * signal.hilbert(signal.get_window(windid[0], xx.size))
         # xx = xx.flatten()
         xx = xx.flatten() * signal.get_window(windid[0], xx.size)
-        xx = xx / max(xx)
+        xx = xx / np.max(xx)
         x0 = [Z * self.M + 1 + (t - rt), f, c, d]
         vlb = [1, 0, -np.inf, 0.25]
         vub = [2 * Z * self.M + 1, 2 * pi, np.inf, self.N / 2]

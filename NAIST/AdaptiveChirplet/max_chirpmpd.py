@@ -67,7 +67,7 @@ class max_chirpmpd:
         Rf0gbetal, seq, id1, id2 = self.forloop2()
         self.seq_test = seq
         # self.seq2idx(seq+1)
-        beta1 = [self.k, self.m, id1, id2-1]
+        beta1 = [self.k, self.m, id1, id2]
         del self.k, self.m, self.r
         return Rf0gbetal, beta1
 
