@@ -2,7 +2,7 @@
 @author: Tang Tao
 @contact: tangtaooo123@gmail.com
 @file: map_chirplets.py
-@time: 12/17/2019 8:15 PM
+@time: 12/18/2019 3:00 PM
 '''
 
 import numpy as np

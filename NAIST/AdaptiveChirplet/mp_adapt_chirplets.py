@@ -18,7 +18,7 @@ class mp_adapt_chirplets:
     mle_adapt_chirplets decompose signal with MLE adaptive chirplet transform
     """
 
-    def __init__(self, x, Q, M=64, CP0=np.array([1, pi / 2, 0, 1])[np.newaxis, :], mnits=2, level=2,
+    def __init__(self, x, Q, M=64, CP0=np.array([1, pi / 2, 0, 1])[np.newaxis, :], mnits=0, level=2,
                  ref_alg='expectmax', p_type='Oneill', i0=1, radix=2, D=5, methodid=1):
         self.x = np.asarray(x).flatten()
         self.err = np.asarray(x).flatten()
