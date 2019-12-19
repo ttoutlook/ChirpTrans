@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import hilbert
 from functionSet import functionSet as funs
-
+from ChirpletLocate import ChirpletLocate
 
 
 # This is the main program of EEWT (Enhanced Empirical Wavelet Transform)
@@ -18,7 +18,7 @@ from functionSet import functionSet as funs
 # if chirplet rate is over 0, use chirplet wavelet to approximate this components
 
 class EEWT:
-    def __init__(self, sig=1, fs=1, components=5, mode='EWT', lengthfilter = 10, sigmafilter = 5):
+    def __init__(self, sig=1, fs=1, components=5, mode='EWT', lengthfilter=10, sigmafilter=5):
         if np.iscomplex(sig).all:
             self.sig = hilbert(sig)
         else:
@@ -34,4 +34,5 @@ class EEWT:
     def initial(self):
 
         # create chirplet family and get feedback parameters
-        None
+        self.params = ChirpletLocate(self.sig, self.components).Param
+

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05577ccc-342c-40c3-aad6-db7fb050eec5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/naist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/naist.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/map_chirplets.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/map_chirplets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/ChirpletLocate.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/ChirpletLocate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +24,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1V2kdbQF3wsIhpBj0RM6wOP1ler" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -33,9 +42,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
-  <component name="RunManager" selected="Python.MaxCorrChirplet">
+  <component name="RunManager" selected="Python.ChirpletLocate">
+    <configuration name="ChirpletLocate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="naist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/EEWT/ChirpletLocate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="MaxCorrChirplet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="naist" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,9 +112,11 @@
     <list>
       <item itemvalue="Python.max_chirpmpd" />
       <item itemvalue="Python.MaxCorrChirplet" />
+      <item itemvalue="Python.ChirpletLocate" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ChirpletLocate" />
         <item itemvalue="Python.MaxCorrChirplet" />
         <item itemvalue="Python.max_chirpmpd" />
       </list>
@@ -116,7 +147,9 @@
       <workItem from="1576568530798" duration="2127000" />
       <workItem from="1576676479330" duration="145000" />
       <workItem from="1576677748317" duration="1826000" />
-      <workItem from="1576679662285" duration="123000" />
+      <workItem from="1576679662285" duration="202000" />
+      <workItem from="1576739097940" duration="2481000" />
+      <workItem from="1576741983999" duration="2541000" />
     </task>
     <task id="LOCAL-00001" summary="TangT">
       <created>1576568698078</created>
@@ -146,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576679593165</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="TangT">
+      <created>1576679790741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576679790741</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,29 +197,39 @@
     <option name="LAST_COMMIT_MESSAGE" value="TangT" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576679039550">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576741961659">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741961659" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679039550" />
-    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576679592664">
+    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576741826713">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576679592664" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1576679596757">
+    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741826713" />
+    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576679790116" />
+    <state x="147" y="65" key="DiffContextDialog" timestamp="1576679828121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679828121" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1576741932332">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
     <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1576679596757">
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1576741932332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
     <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1576679596757">
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1576741932332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
     <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1576679596757">
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1576741932332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
     <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1576679596757">
       <screen x="0" y="0" width="1536" height="824" />
@@ -201,25 +251,36 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="636" y="122" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1576568670959" />
-    <state x="270" y="54" key="SettingsEditor" timestamp="1576676590762">
+    <state x="270" y="54" key="SettingsEditor" timestamp="1576741056134">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576676590762" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1576568780272">
+    <state x="270" y="54" key="SettingsEditor/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741056134" />
+    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576739515817" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1576679840169">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576568780272" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576679662392">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576679840169" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576741984894">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679662392" />
-    <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576676557128">
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741984894" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576739492979" />
+    <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576739804567">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576676557128" />
+    <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576739804567" />
+    <state x="454" y="-6" width="898" height="463" maximized="true" key="dock-window-1" timestamp="1576752605736">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="454" y="-6" width="898" height="463" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576752605736" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576740638343">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576740638343" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Code$MaxCorrChirplet.coverage" NAME="MaxCorrChirplet Coverage Results" MODIFIED="1576678993162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT" />
     <SUITE FILE_PATH="coverage/Code$max_chirpmpd.coverage" NAME="max_chirpmpd Coverage Results" MODIFIED="1576679015516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/AdaptiveChirplet" />
+    <SUITE FILE_PATH="coverage/Code$ChirpletLocate.coverage" NAME="ChirpletLocate Coverage Results" MODIFIED="1576741925393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT" />
   </component>
 </project>
