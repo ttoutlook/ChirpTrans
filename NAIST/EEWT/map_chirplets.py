@@ -12,8 +12,7 @@ from MaxCorrChirplet import MaxCorrelation
 from numpy import pi
 from scipy.signal import get_window
 
-
-# th main function used to project the signal to gaussian chirplet atom
+# the main function used to project the signal to gaussian chirplet atom
 
 class MapChirplet:
     def __init__(self, x, M=64, Depth=5, i0=1, radix=2, methodid=1, windowid=0, windowlength=4):
