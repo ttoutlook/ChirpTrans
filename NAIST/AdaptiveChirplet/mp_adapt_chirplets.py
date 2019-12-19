@@ -126,19 +126,19 @@ if __name__ == '__main__':
     fs = 1
     T = 1000
     # wave III consists of a pulse (E) and a sinusoidal (F) waveform
-    tc_e = 128  # component E
-    s_e = funs().garbor1d(T, fs, 0, 0, tc_e, 2, 0)
-    fc_f = 0.35  # component F
-    A_f = 0.2
-    t2 = np.arange(0, T * fs)
-    s_f = A_f * np.sin(2 * pi * fc_f * t2 / fs)
-    sig = s_e + np.random.randn(s_e.size) * 0.1
+    # tc_e = 128  # component E
+    # s_e = funs().garbor1d(T, fs, 0, 0, tc_e, 2, 0)
+    # fc_f = 0.35  # component F
+    # A_f = 0.2
+    # t2 = np.arange(0, T * fs)
+    # s_f = A_f * np.sin(2 * pi * fc_f * t2 / fs)
+    # sig = s_e + np.random.randn(s_e.size) * 0.1
 
-    # fs = 100
-    # t = np.arange(1, 1001)
-    # sig = np.sin(t) * np.hanning(t.size)
+    fs = 100
+    t = np.arange(1, 10001)
+    sig = np.sin(t) * np.hanning(t.size)
     # sig = np.sin(t)
-    sigclass = mp_adapt_chirplets(sig, 10, methodid=1)
+    sigclass = mp_adapt_chirplets(sig, 10, methodid=1, M=1024)
     plt.figure()
     plt.subplot(411)
     plt.plot(sigclass.x.real)
