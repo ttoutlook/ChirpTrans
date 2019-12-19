@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05577ccc-342c-40c3-aad6-db7fb050eec5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/naist.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/naist.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/ChirpletLocate.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/ChirpletLocate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +147,7 @@
       <workItem from="1576677748317" duration="1826000" />
       <workItem from="1576679662285" duration="202000" />
       <workItem from="1576739097940" duration="2481000" />
-      <workItem from="1576741983999" duration="2541000" />
+      <workItem from="1576741983999" duration="3738000" />
     </task>
     <task id="LOCAL-00001" summary="TangT">
       <created>1576568698078</created>
@@ -186,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576679790741</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="TangT">
+      <created>1576753230385</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576753230385</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,10 +207,10 @@
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741961659" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679039550" />
-    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576741826713">
+    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576753229760">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741826713" />
+    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753229760" />
     <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576679790116" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1576679828121">
       <screen x="0" y="0" width="1536" height="824" />
@@ -269,10 +274,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576739804567" />
-    <state x="454" y="-6" width="898" height="463" maximized="true" key="dock-window-1" timestamp="1576752605736">
+    <state x="1920" y="0" width="1215" height="812" maximized="true" key="dock-window-1" timestamp="1576753861521">
+      <screen x="1920" y="0" width="1280" height="984" />
+    </state>
+    <state x="1920" y="0" width="1215" height="812" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753861521" />
+    <state x="337" y="0" width="1213" height="811" key="dock-window-2" timestamp="1576753861521">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="454" y="-6" width="898" height="463" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576752605736" />
+    <state x="337" y="0" width="1213" height="811" key="dock-window-2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753861521" />
+    <state x="2020" y="195" width="1215" height="812" key="dock-window-3" timestamp="1576753861521">
+      <screen x="1920" y="0" width="1280" height="984" />
+    </state>
+    <state x="2020" y="195" width="1215" height="812" key="dock-window-3/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753861521" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576740638343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

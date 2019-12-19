@@ -6,10 +6,11 @@
 '''
 
 import numpy as np
-import matplotlib.pyplot as plt
+
 from scipy.signal import hilbert
 from functionSet import functionSet as funs
 from ChirpletLocate import ChirpletLocate
+
 
 
 # This is the main program of EEWT (Enhanced Empirical Wavelet Transform)
@@ -35,4 +36,18 @@ class EEWT:
 
         # create chirplet family and get feedback parameters
         self.params = ChirpletLocate(self.sig, self.components).Param
+
+
+if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+    from testsignal import testsignal
+    cross = testsignal().CrossSignal().clear
+    multi = testsignal().MultiSignal().clear
+    params = EEWT(cross).params
+    tfr, t, f = funs(cross).ACS_plot(params)
+    title = 'Chirp atoms'
+    funs(cross).contour(tfr, t, f, P=params, reconstruction=True, title=title)
+
+
+
 
