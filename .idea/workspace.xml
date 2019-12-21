@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05577ccc-342c-40c3-aad6-db7fb050eec5" name="Default Changelist" comment="">
+    <list default="true" id="05577ccc-342c-40c3-aad6-db7fb050eec5" name="Default Changelist" comment="TangT">
+      <change afterPath="$PROJECT_DIR$/NAIST/EEWT/ParamTrans.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NAIST/EEWT/test/GaussianPlot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NAIST/EEWT/test/timedurationTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/MakeChirplet.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/MakeChirplet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/functionSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/functionSet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NAIST/EEWT/map_chirplets.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/map_chirplets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" beforeDir="false" afterPath="$PROJECT_DIR$/NAIST/EEWT/testsignal.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +49,14 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
-  <component name="RunManager" selected="Python.ChirpletLocate">
+  <component name="RunManager" selected="Python.GaussianPlot">
     <configuration name="ChirpletLocate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="naist" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -63,29 +72,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="MaxCorrChirplet" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="naist" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/EEWT/MaxCorrChirplet.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="max_chirpmpd" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="DecomposeCrossChirp" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="naist" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,7 +85,73 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/AdaptiveChirplet/max_chirpmpd.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/AdaptiveChirplet/DecomposeCrossChirp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="EEWT" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="naist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/EEWT/EEWT.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GaussianPlot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="naist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/EEWT/test/GaussianPlot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="timedurationTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="naist" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NAIST/EEWT/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NAIST/EEWT/test/timedurationTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,15 +161,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.max_chirpmpd" />
-      <item itemvalue="Python.MaxCorrChirplet" />
       <item itemvalue="Python.ChirpletLocate" />
+      <item itemvalue="Python.EEWT" />
+      <item itemvalue="Python.GaussianPlot" />
+      <item itemvalue="Python.timedurationTest" />
+      <item itemvalue="Python.DecomposeCrossChirp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GaussianPlot" />
+        <item itemvalue="Python.EEWT" />
+        <item itemvalue="Python.DecomposeCrossChirp" />
+        <item itemvalue="Python.timedurationTest" />
         <item itemvalue="Python.ChirpletLocate" />
-        <item itemvalue="Python.MaxCorrChirplet" />
-        <item itemvalue="Python.max_chirpmpd" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +204,8 @@
       <workItem from="1576677748317" duration="1826000" />
       <workItem from="1576679662285" duration="202000" />
       <workItem from="1576739097940" duration="2481000" />
-      <workItem from="1576741983999" duration="3738000" />
+      <workItem from="1576741983999" duration="13374000" />
+      <workItem from="1576800789626" duration="14481000" />
     </task>
     <task id="LOCAL-00001" summary="TangT">
       <created>1576568698078</created>
@@ -191,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576753230385</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="TangT">
+      <created>1576754402322</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576754402322</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,56 +267,60 @@
     <option name="LAST_COMMIT_MESSAGE" value="TangT" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576741961659">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576805938082">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741961659" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679039550" />
-    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576753229760">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576761015807" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1576805938082" />
+    <state x="372" y="3" key="CommitChangelistDialog2" timestamp="1576860044912">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753229760" />
-    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576679790116" />
+    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576754401724" />
+    <state x="372" y="3" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1576860044912" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1576679828121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1576679828121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1576741932332">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
-    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1576741932332">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
-    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1576741932332">
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
-    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1576741932332">
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741932332" />
-    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1576679596757">
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1576679596757">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1576679596757">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1576679596757">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1576863143351">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1576679596757" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576824967606" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1576863143351" />
     <state x="636" y="122" key="RollbackChangesDialog" timestamp="1576568670959">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -265,19 +334,20 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1576679840169" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576741984894">
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1576800789636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576741984894" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576800789636" />
     <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576739492979" />
     <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576739804567">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1576739804567" />
-    <state x="1920" y="0" width="1215" height="812" maximized="true" key="dock-window-1" timestamp="1576753861521">
-      <screen x="1920" y="0" width="1280" height="984" />
+    <state x="635" y="0" width="907" height="830" maximized="true" key="dock-window-1" timestamp="1576916160214">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="1920" y="0" width="1215" height="812" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753861521" />
+    <state x="1647" y="-34" width="1549" height="838" maximized="true" key="dock-window-1/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576916160214" />
+    <state x="635" y="0" width="907" height="830" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1576860577591" />
     <state x="337" y="0" width="1213" height="811" key="dock-window-2" timestamp="1576753861521">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -286,14 +356,18 @@
       <screen x="1920" y="0" width="1280" height="984" />
     </state>
     <state x="2020" y="195" width="1215" height="812" key="dock-window-3/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576753861521" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576740638343">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1576754492014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576740638343" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1280.984@0.0.1536.824" timestamp="1576754492014" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Code$EEWT.coverage" NAME="EEWT Coverage Results" MODIFIED="1576824937279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT" />
     <SUITE FILE_PATH="coverage/Code$MaxCorrChirplet.coverage" NAME="MaxCorrChirplet Coverage Results" MODIFIED="1576678993162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT" />
     <SUITE FILE_PATH="coverage/Code$max_chirpmpd.coverage" NAME="max_chirpmpd Coverage Results" MODIFIED="1576679015516" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/AdaptiveChirplet" />
     <SUITE FILE_PATH="coverage/Code$ChirpletLocate.coverage" NAME="ChirpletLocate Coverage Results" MODIFIED="1576741925393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT" />
+    <SUITE FILE_PATH="coverage/Code$GaussianPlot.coverage" NAME="GaussianPlot Coverage Results" MODIFIED="1576760996392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT/test" />
+    <SUITE FILE_PATH="coverage/Code$timedurationTest.coverage" NAME="timedurationTest Coverage Results" MODIFIED="1576804409727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/EEWT/test" />
+    <SUITE FILE_PATH="coverage/Code$DecomposeCrossChirp.coverage" NAME="DecomposeCrossChirp Coverage Results" MODIFIED="1576824931832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NAIST/AdaptiveChirplet" />
   </component>
 </project>

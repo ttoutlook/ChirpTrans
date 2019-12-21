@@ -139,10 +139,10 @@ class functionSet:
             #  w2 = exp(-(n-tc)^2/2/d^2)
             #  w3 = exp(-2*d^2*((f-fc)-c*(n-tc))^2)
             a = abs(A_k)
-            w1 = a ** 2 / pi
-            w2 = np.exp(-(tmat - tc_k) ** 2 / 2 / d_k ** 2)
-            w3 = np.exp(-2 * d_k ** 2 * ((fmat - fc_k) - c_k * (tmat - tc_k)) ** 2)
-            w_k = w1 * w2 * w3
+            acp = a ** 2 / pi
+            bcp = np.exp(-(tmat - tc_k) ** 2 / 2 / d_k ** 2)
+            ccp = np.exp(-2 * d_k ** 2 * ((fmat - fc_k) - c_k * (tmat - tc_k)) ** 2)
+            w_k = acp * bcp * ccp
 
             wig = wig + w_k
         f_ = np.linspace(0, 1, 2 * self.N)
@@ -153,7 +153,7 @@ class functionSet:
         return wig, t, f_
 
     def reconstruction(self, P):
-        sig = MakeChirplets(self.N, P).sig.real
+        sig = MakeChirplet(self.N, P).sig.real
         flab, xfft = self.fft(sig)
         return sig, flab, xfft
 

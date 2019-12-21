@@ -45,7 +45,7 @@ class MapChirplet:
         """
         refine the chirplet with newton-raphson method
         """
-        Z = self.windowlength  # a longer window is useful here (windown length)
+        Z = self.windowlength  # a longer window is useful here (window length)
         t, f, c, d = self.Param[1:]
         rt = int(round(t))
         p_ = self.windowAndOptimize(Z, t, f, c, d, rt)

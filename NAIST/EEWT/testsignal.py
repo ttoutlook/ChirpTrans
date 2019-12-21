@@ -9,7 +9,7 @@ import numpy as np
 from MakeChirplet import MakeChirplet
 from numpy import pi
 from functionSet import functionSet as funs
-from scipy.signal import hilbert,sawtooth
+from scipy.signal import hilbert, sawtooth
 from ChirpletLocate import MapChirplet
 
 
@@ -32,9 +32,10 @@ class testsignal:
         d_snr = snr  # desired SNR
         spn, ns = funs(s).wgn(d_snr)
         # e_snr = funs(s).SNR(spn)
-        self.clear = s
-        self.noisy = spn
-        self.Param = [P1, P2]
+        # self.clear = s
+        # self.noisy = spn
+        # self.Param = [P1, P2]
+        return s, spn
 
     def MultiSignal(self, T=500, fs=1, snr=0):
         # construct and display the signals
@@ -105,6 +106,4 @@ class testsignal:
         d_snr = snr  # desired SNR
         spn, ns = funs(chirpsim).wgn(d_snr)
 
-        self.clear = chirpsim
-        self.noisy = spn
-
+        return chirpsim, spn
