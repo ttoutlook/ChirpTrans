@@ -308,8 +308,13 @@ class functionSet:
         '''
         return np.fft.ifft(np.fft.fft(a) * np.fft.fft(b))
 
-    def plot(self, x):
+    def plotSignal(self, x):
         plt.figure(figsize=(5, 3))
         tlab = np.arange(0, len(x)) / self.fs
         plt.plot(tlab, x)
+        plt.show()
+
+    def plotXY(self, x, y):
+        plt.figure(figsize=(5, 5))
+        plt.plot(x, y, 'k')
         plt.show()

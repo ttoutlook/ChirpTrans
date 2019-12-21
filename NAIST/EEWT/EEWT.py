@@ -35,7 +35,9 @@ class EEWT:
     def initial(self):
         # create chirplet family and get feedback parameters
         self.params = ChirpletLocate(self.sig, self.components).Param
-        ParamsTrans(self.params, self.N, self.components)
+        bounds = ParamsTrans(self.params, self.N, self.components)
+        self.xbs = bounds.xbs
+        self.ybs = bounds.ybs
 
 
 if __name__ == '__main__':
@@ -44,7 +46,17 @@ if __name__ == '__main__':
 
     cross, _ = testsignal().CrossSignal()
     multi, _ = testsignal().MultiSignal()
-    params = EEWT(multi, components=7).params
+    eewt = EEWT(multi, components=7)
+    params = eewt.params
     tfr, t, f = funs(multi).ACS_plot(params)
     title = 'Chirp atoms'
     funs(multi).contour(tfr, t, f, P=params, reconstruction=True, title=title)
+
+    xbounds = eewt.ybs
+    plt.figure()
+    for xbs in xbounds:
+        color = np.random.rand(3,)
+        x1, x2 = xbs
+        plt.vlines(x1, ymin=0, ymax=1, colors=color)
+        plt.vlines(x2, ymin=0, ymax=1, colors=color)
+        plt.hlines(0,0,512)
