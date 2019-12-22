@@ -55,8 +55,8 @@ if __name__ == '__main__':
     xbounds = eewt.ybs
     plt.figure()
     for xbs in xbounds:
-        color = np.random.rand(3,)
+        color = np.random.rand(3, )
         x1, x2 = xbs
         plt.vlines(x1, ymin=0, ymax=1, colors=color)
         plt.vlines(x2, ymin=0, ymax=1, colors=color)
-        plt.hlines(0,0,512)
+        plt.hlines(0, 0, 512, colors='k')

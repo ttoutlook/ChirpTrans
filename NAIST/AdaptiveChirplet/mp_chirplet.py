@@ -8,9 +8,6 @@ import numpy as np
 from make_chirplets import MakeChirplets
 from numpy import pi
 from Optimization import FindBestChirpRate
-import matplotlib.pyplot as plt
-from Optimize import FindBestChirpletRate
-from scipy.signal import stft, spectrogram
 from max_chirpmpd import max_chirpmpd
 from scipy import signal
 

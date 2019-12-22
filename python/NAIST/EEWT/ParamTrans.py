@@ -30,12 +30,14 @@ class ParamsTrans:
         self.initial()
 
     def initial(self):
-        constfre = []  # constant frequency components
-        varyfre = []  # Variable frequency components
-        xbounds =[]
-        ybounds =[]
+        componentId = []  # constant frequency components
+        ComponentxBoundaries = []  # Variable frequency components
+        ComponentyBoundaries = []  # Variable frequency components
+        ComponentCenter = []  # Variable frequency components
+        xbounds = []
+        ybounds = []
         for i in range(self.Q):
-            A, t, f, cr, d = self.params[i, :].tolist()
+            A, t, f, cr, d = self.paramsCohen[i, :].tolist()
             print('Component No.', i + 1)
             print('t:', t, 'f:', f)
             print('cr:', cr, 'd:', d)
@@ -55,10 +57,18 @@ class ParamsTrans:
             yb2 = yboundaries[-1]
             xbounds.append([xb1, xb2])
             ybounds.append([yb1, yb2])
+
+            if np.floor(cr) == 0:
+                componentId.append(i + 1)
+                ComponentxBoundaries.append([xb1, xb2])
+                ComponentyBoundaries.append([yb1, yb2])
+                ComponentCenter.append([t, f])
+
         self.xbs = xbounds
         self.ybs = ybounds
-            # plt.xlim([0, self.N])
-            # plt.ylim([0, 0.5])
+        self.
+        # plt.xlim([0, self.N])
+        # plt.ylim([0, 0.5])
 
     def det_boundaries(self, wig, threshold=0.01):
         """
